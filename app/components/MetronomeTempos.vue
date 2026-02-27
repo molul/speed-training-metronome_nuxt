@@ -1,0 +1,49 @@
+<script setup lang="ts">
+import { useMetronomeStore } from '../stores/useMetronomeStore'
+
+defineProps<{ height: number }>()
+const store = useMetronomeStore()
+
+const getRowBgClass = (bpmVarName: string, rowIndex: number) => {
+  const bpm = store.rowToBpm(rowIndex)
+  const { startBpm, peakBpm, endBpm } = store.config
+
+  if (bpmVarName === 'startBpm' &&  bpm === startBpm) return 'bg-green-600 dark:bg-green-400'
+  if (bpmVarName === 'peakBpm' && bpm === peakBpm) return 'bg-red-700 dark:bg-red-400'
+  if (bpmVarName === 'endBpm' && bpm === endBpm) return 'bg-yellow-600 dark:bg-yellow-400'
+
+  return 'hidden'
+}
+</script>
+
+<template>
+  <div class="flex flex-col select-none z-10 -translate-x-[0px]">
+    <div
+      v-for="r in store.rows + 1"
+      :key="r"
+      class="text-[11px] flex items-center justify-end pr-0.5 relative leading-tight"
+      :style="{
+        width: store.temposColumnWidth + 'px',
+        height: height / store.rows + 'px'
+      }"
+    >
+<div class="size-full absolute top-0 left-0 flex gap-0 rounded-l-xs overflow-hidden">
+      <div
+v-for="bpmVarName in ['startBpm', 'peakBpm', 'endBpm']"
+:key="bpmVarName"
+        class="size-full z-0"
+        :class="getRowBgClass(bpmVarName, r - 1)"
+      />
+</div>
+
+      <span
+        :class="[
+          'z-30 -translate-x-[1px] translate-y-[1px] font-bold font-monocode',
+          { 'text-white dark:text-zinc-900': [store.config. startBpm,store.config.peakBpm,store.config.endBpm]. includes(store.rowToBpm(r) + 5) }
+        ]"
+      >
+        {{ store.rowToBpm(r) + 5 }}
+      </span>
+    </div>
+  </div>
+</template>
