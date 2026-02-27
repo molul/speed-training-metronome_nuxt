@@ -80,8 +80,7 @@ export default defineNuxtConfig({
     },
   },
   // Ensure your CSS is loaded
-  css: ["./app/style.css"],
-
+  css: ["~/style.css"],
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   modules: [

@@ -80,7 +80,7 @@ async function handleInstall() {
             <div class="p-0 bg-white rounded-lg">
               <Icon
                 name="solar:download-square-bold"
-                class="text-blue-400 size-8"
+                class="text-blue-400 size-8!"
               />
             </div>
             <span class="text-sm font-semibold text-zinc-800 dark:text-zinc-200"

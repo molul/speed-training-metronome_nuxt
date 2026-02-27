@@ -23,6 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
   <Button
     :severity="props.severity"
     :label="props.label"
+    :aria-label="props.label"
     :disabled="props.disabled"
     :fluid="props.fullWidth"
     :class="[
