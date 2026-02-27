@@ -106,6 +106,8 @@ async function handleInstall() {
               v-if="!store.isRunning"
               icon="solar:play-bold"
               size="big"
+              label="Play"
+              :show-label="false"
               @click="start"
             />
             <MyButton
@@ -113,6 +115,8 @@ async function handleInstall() {
               icon="solar:stop-bold"
               severity="danger"
               size="big"
+              label="Stop"
+              :show-label="false"
               @click="stop"
             />
 

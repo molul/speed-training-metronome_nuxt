@@ -2,6 +2,7 @@
 interface Props {
   label?: string;
   icon?: string;
+  showLabel?: boolean;
   fullWidth?: boolean;
   size?: "normal" | "big";
   severity?: string;
@@ -16,13 +17,14 @@ const props = withDefaults(defineProps<Props>(), {
   severity: "primary",
   shape: "square",
   disabled: false,
+  showLabel: true,
 });
 </script>
 
 <template>
   <Button
     :severity="props.severity"
-    :label="props.label"
+    :label="props.showLabel ? props.label : undefined"
     :aria-label="props.label"
     :disabled="props.disabled"
     :fluid="props.fullWidth"

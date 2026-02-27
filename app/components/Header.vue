@@ -112,6 +112,8 @@ function handleOpenSaveModal() {
           v-tooltip.bottom="'Save preset'"
           icon="solar:diskette-linear"
           severity="secondary"
+          label="Save preset"
+          :show-label="false"
           :disabled="store.isRunning"
           @click="handleOpenSaveModal"
         />
@@ -120,6 +122,8 @@ function handleOpenSaveModal() {
           v-tooltip.bottom="'Presets'"
           icon="solar:library-linear"
           severity="secondary"
+          label="Presets"
+          :show-label="false"
           :disabled="store.isRunning"
           @click="handleShowPresetsModal"
         />
@@ -128,6 +132,8 @@ function handleOpenSaveModal() {
           v-tooltip.bottom="'Settings'"
           icon="solar:settings-linear"
           severity="secondary"
+          label="Settings"
+          :show-label="false"
           :disabled="store.isRunning"
           @click="handleShowSettingsDialog"
         />
@@ -136,6 +142,8 @@ function handleOpenSaveModal() {
           v-tooltip.bottom="'Info'"
           icon="solar:info-circle-linear"
           severity="secondary"
+          label="Info"
+          :show-label="false"
           :disabled="store.isRunning"
           @click="handleShowInfoDialog"
         />

@@ -29,6 +29,7 @@ const MyPreset = definePreset(Aura, {
 });
 
 export default defineNuxtConfig({
+  ssr: false,
   sourcemap: {
     server: false,
     client: false,
@@ -83,7 +84,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-  // Ensure your CSS is loaded
   css: ["~/style.css"],
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
@@ -99,11 +99,11 @@ export default defineNuxtConfig({
   },
   icon: {
     clientBundle: {
-      scan: true, // Only bundle icons that are actually used in your code
+      scan: true,
     },
   },
   colorMode: {
-    classSuffix: "", // Critical for Tailwind: removes '-mode' from 'dark-mode'
+    classSuffix: "",
   },
   primevue: {
     options: {
@@ -111,7 +111,6 @@ export default defineNuxtConfig({
       theme: {
         preset: MyPreset,
         options: {
-          // This is the magic line for PrimeVue 4
           darkModeSelector: ".dark",
         },
       },
