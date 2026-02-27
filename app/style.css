@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -14,12 +14,12 @@
   --background-color: #fff;
 }
 
-body {
+/* body {
   margin: 0;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-}
+} */
 
 h1 {
   font-size: 3.2em;
@@ -47,19 +47,19 @@ html {
 }
 
 @font-face {
-  font-family: 'CodeNewRoman';
-  src: url('./assets/fonts/Code New Roman.woff') format('woff');
+  font-family: "CodeNewRoman";
+  src: url("./assets/fonts/Code New Roman.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'CodeNewRoman';
-  src: url('./assets/fonts/Code New Roman b.woff') format('woff');
+  font-family: "CodeNewRoman";
+  src: url("./assets/fonts/Code New Roman b.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 
 @theme {
-  --font-monocode: 'CodeNewRoman', ui-sans-serif, system-ui;
+  --font-monocode: "CodeNewRoman", ui-sans-serif, system-ui;
 }

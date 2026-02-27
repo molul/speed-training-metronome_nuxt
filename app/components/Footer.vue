@@ -11,6 +11,6 @@
     >
       Luis Morcillo Luque
     </a>
-    with Vue 3 © 2026
+    with Nuxt 4 © 2026
   </div>
 </template>

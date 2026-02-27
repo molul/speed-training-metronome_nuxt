@@ -1,5 +1,6 @@
 import { definePreset } from "@primeuix/themes";
 import Aura from "@primeuix/themes/aura";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 const MyPreset = definePreset(Aura, {
@@ -28,15 +29,74 @@ const MyPreset = definePreset(Aura, {
 });
 
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: "Speed Training Metronome",
+      htmlAttrs: { lang: "en" },
+      meta: [
+        { charset: "UTF-8" },
+        {
+          name: "viewport",
+          content:
+            "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover",
+        },
+        {
+          name: "apple-mobile-web-app-status-bar-style",
+          content: "black-translucent",
+        },
+        // Theme colors for PWA
+        {
+          name: "theme-color",
+          content: "#fff",
+          media: "(prefers-color-scheme: light)",
+        },
+        {
+          name: "theme-color",
+          content: "#18181b",
+          media: "(prefers-color-scheme: dark)",
+        },
+      ],
+      link: [
+        { rel: "icon", type: "image/svg+xml", href: "/metronome-favicon.svg" },
+        { rel: "manifest", href: "/manifest.webmanifest" },
+        { rel: "apple-touch-icon", href: "/icon-192x192.png" },
+      ],
+      // This handles your Google Analytics setup
+      script: [
+        {
+          src: "https://www.googletagmanager.com/gtag/js?id=G-48PRP8WFCL",
+          async: true,
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-48PRP8WFCL');
+          `,
+          type: "text/javascript",
+        },
+      ],
+    },
+  },
+  // Ensure your CSS is loaded
+  css: ["./app/style.css"],
+
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   modules: [
     "@pinia/nuxt",
     "@nuxt/icon",
-    "@nuxtjs/tailwindcss",
     "@primevue/nuxt-module",
     "@vueuse/nuxt",
+    "@nuxtjs/color-mode",
   ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  colorMode: {
+    classSuffix: "", // Critical for Tailwind: removes '-mode' from 'dark-mode'
+  },
   primevue: {
     options: {
       ripple: true,

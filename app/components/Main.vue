@@ -1,65 +1,64 @@
 <script setup lang="ts">
-import MetronomeSection from './MetronomeSection.vue'
-import { useMetronomeEngine } from '../composables/useMetronomeEngine'
-import { useMetronomeStore } from '../stores/useMetronomeStore'
-import MyButton from './MyButton.vue'
-import Header from './Header.vue'
-import BeatsIndicator from './BeatsIndicator.vue'
-import Footer from './Footer.vue'
-import { Icon } from '@iconify/vue'
-import { ref, onMounted } from 'vue'
+import MetronomeSection from "./MetronomeSection.vue";
+import { useMetronomeEngine } from "../composables/useMetronomeEngine";
+import { useMetronomeStore } from "../stores/useMetronomeStore";
+import MyButton from "./MyButton.vue";
+import Header from "./Header.vue";
+import BeatsIndicator from "./BeatsIndicator.vue";
+import Footer from "./Footer.vue";
+import { ref, onMounted } from "vue";
 
-const installPrompt = ref<any>(null)
+const installPrompt = ref<any>(null);
 
-const store = useMetronomeStore()
-const engine = useMetronomeEngine()
+const store = useMetronomeStore();
+const engine = useMetronomeEngine();
 
 // This will be used for showing the "install for offline use" banner
 onMounted(() => {
-  window.addEventListener('beforeinstallprompt', e => {
-    e.preventDefault()
-    installPrompt.value = e
-  })
-})
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    installPrompt.value = e;
+  });
+});
 
 // ----------------------------------------
 // start
 // ----------------------------------------
 function start() {
-  store.isRunning = true
+  store.isRunning = true;
   engine.start(
     store.config.points,
     store.config.stopAtEnd,
     store.config.barsPerCell,
     store.config.tempoStep
-  )
+  );
 }
 
 // ----------------------------------------
 // stop
 // ----------------------------------------
 function stop() {
-  engine.stop()
-  store.isRunning = false
+  engine.stop();
+  store.isRunning = false;
 }
 
 // ----------------------------------------
 // handleInstall
 // ----------------------------------------
 async function handleInstall() {
-  if (!installPrompt.value) return
+  if (!installPrompt.value) return;
 
   // Show the native install prompt
-  installPrompt.value.prompt()
+  installPrompt.value.prompt();
 
   // Wait for the user to respond to the prompt
-  const { outcome } = await installPrompt.value.userChoice
+  const { outcome } = await installPrompt.value.userChoice;
 
-  if (outcome === 'accepted') {
-    console.log('User installed the PWA')
+  if (outcome === "accepted") {
+    console.log("User installed the PWA");
   }
 
-  installPrompt.value = null
+  installPrompt.value = null;
 }
 </script>
 
@@ -79,7 +78,10 @@ async function handleInstall() {
         >
           <div class="flex items-center gap-2.5">
             <div class="p-0 bg-white rounded-lg">
-              <Icon icon="solar:download-square-bold" class="text-blue-400 size-8" />
+              <Icon
+                name="solar:download-square-bold"
+                class="text-blue-400 size-8"
+              />
             </div>
             <span class="text-sm font-semibold text-zinc-800 dark:text-zinc-200"
               >Install for offline use</span

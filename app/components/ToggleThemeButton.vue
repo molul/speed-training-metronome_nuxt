@@ -1,37 +1,26 @@
 <script setup lang="ts">
-import MyButton from './MyButton.vue'
-import { ref, onMounted } from 'vue'
+import MyButton from "./MyButton.vue";
 
-const isDark = ref(true)
+// Nuxt Color Mode gives us a reactive object
+const colorMode = useColorMode();
 
+// Computed property to check if we are currently dark
+// colorMode.value will be 'system', 'light', or 'dark'
+const isDark = computed(() => colorMode.value === "dark");
 
 const toggleTheme = () => {
-  isDark.value = !isDark.value
-  if (isDark.value) {
-    document.documentElement.classList.add('dark')
-    localStorage.setItem('theme', 'dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-    localStorage.setItem('theme', 'light')
-  }
-}
-
-// Sync with saved preference on load
-onMounted(() => {
-  isDark.value =
-    document.documentElement.classList.contains('dark') ||
-    localStorage.getItem('theme') === 'dark'
-  
-})
+  // We simply change the value; the module handles the CSS class and LocalStorage
+  colorMode.preference = isDark.value ? "light" : "dark";
+};
 </script>
 
 <template>
   <MyButton
     @click="toggleTheme"
-severity="secondary"
+    severity="secondary"
     :full-width="true"
-:label="!isDark ? 'Dark theme' : 'Light theme'"
-:aria-label="!isDark ? 'Dark theme' : 'Light theme'"
-    :icon="!isDark ? 'solar:moon-bold' : 'solar:sun-bold'"
+    :label="isDark ? 'Light theme' : 'Dark theme'"
+    :aria-label="isDark ? 'Light theme' : 'Dark theme'"
+    :icon="isDark ? 'solar:sun-bold' : 'solar:moon-bold'"
   />
 </template>

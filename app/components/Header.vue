@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-import SettingsDialog from './SettingsDialog.vue'
-import { useDialog } from 'primevue/usedialog'
-import MyButton from './MyButton.vue'
-import { useMetronomeStore } from '../stores/useMetronomeStore'
-import InfoDialog from './InfoDialog.vue'
-import PresetsDialog from './PresetsDialog.vue'
-import metronomeIconUrl from '@/assets/metronome-favicon.svg'
-import SavePresetDialog from './SavePresetDialog.vue'
+import { ref, onMounted, onUnmounted } from "vue";
+import SettingsDialog from "./SettingsDialog.vue";
+import { useDialog } from "primevue/usedialog";
+import MyButton from "./MyButton.vue";
+import { useMetronomeStore } from "../stores/useMetronomeStore";
+import InfoDialog from "./InfoDialog.vue";
+import PresetsDialog from "./PresetsDialog.vue";
+import metronomeIconUrl from "@/assets/metronome-favicon.svg";
+import SavePresetDialog from "./SavePresetDialog.vue";
 
-const menuVisible = ref(false)
-const containerRef = ref<HTMLElement | null>(null)
-const dialog = useDialog()
-const store = useMetronomeStore()
+const menuVisible = ref(false);
+const containerRef = ref<HTMLElement | null>(null);
+const dialog = useDialog();
+const store = useMetronomeStore();
 
-onMounted(() => window.addEventListener('mousedown', handleClickOutside))
+onMounted(() => window.addEventListener("mousedown", handleClickOutside));
 
-onUnmounted(() => window.removeEventListener('mousedown', handleClickOutside))
+onUnmounted(() => window.removeEventListener("mousedown", handleClickOutside));
 
 // ----------------------------------------
 // handleClickOutside
@@ -27,9 +27,9 @@ const handleClickOutside = (event: MouseEvent) => {
     containerRef.value &&
     !containerRef.value.contains(event.target as Node)
   ) {
-    menuVisible.value = false
+    menuVisible.value = false;
   }
-}
+};
 
 // ----------------------------------------
 // handleShowSettingsDialog
@@ -38,11 +38,11 @@ const handleShowSettingsDialog = () => {
   dialog.open(SettingsDialog, {
     props: {
       dismissableMask: true,
-      header: 'Settings',
-      modal: true
-    }
-  })
-}
+      header: "Settings",
+      modal: true,
+    },
+  });
+};
 
 // ----------------------------------------
 // handleShowInfoDialog
@@ -51,11 +51,11 @@ const handleShowInfoDialog = () => {
   dialog.open(InfoDialog, {
     props: {
       dismissableMask: true,
-      header: 'Info',
-      modal: true
-    }
-  })
-}
+      header: "Info",
+      modal: true,
+    },
+  });
+};
 
 // ----------------------------------------
 // handleShowPresetsModal
@@ -64,28 +64,28 @@ const handleShowPresetsModal = () => {
   dialog.open(PresetsDialog, {
     props: {
       dismissableMask: true,
-      header: 'Saved Presets',
+      header: "Saved Presets",
       modal: true,
       style: {
-        width: '90vw',
-        maxWidth: '24rem'
-      }
-    }
-  })
-}
+        width: "90vw",
+        maxWidth: "24rem",
+      },
+    },
+  });
+};
 
 function handleOpenSaveModal() {
   dialog.open(SavePresetDialog, {
     props: {
-      header: 'Save Preset',
+      header: "Save Preset",
       modal: true,
       dismissableMask: true,
       style: {
-        width: '90vw',
-        maxWidth: '24rem'
-      }
-    }
-  })
+        width: "90vw",
+        maxWidth: "24rem",
+      },
+    },
+  });
 }
 </script>
 
@@ -96,8 +96,11 @@ function handleOpenSaveModal() {
   >
     <div class="flex justify-between items-center">
       <div class="flex items-center gap-1.5">
-        <img :src="metronomeIconUrl" class="size-9 rounded-full" alt="Metronome Icon" />
-        <!-- <Icon icon="mdi:metronome" class="size-8" /> -->
+        <img
+          :src="metronomeIconUrl"
+          class="size-9 rounded-full"
+          alt="Metronome Icon"
+        />
         <span class="text-[15px] font-bold text-left leading-none">
           SPEED TRAINING <br />
           METRONOME
