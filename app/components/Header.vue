@@ -97,7 +97,7 @@ function handleOpenSaveModal() {
     <div class="flex justify-between items-center">
       <div class="flex items-center gap-1.5">
         <img
-          :src="metronomeIconUrl"
+          src="/metronome-favicon.svg"
           class="size-9 rounded-full"
           alt="Metronome Icon"
         />

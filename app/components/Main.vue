@@ -77,7 +77,7 @@ async function handleInstall() {
           class="flex items-center justify-between p-3 bg-blue-200 dark:bg-zinc-800 border-b border-transparent dark:border-zinc-700"
         >
           <div class="flex items-center gap-2.5">
-            <div class="p-0 bg-white rounded-lg">
+            <div class="flex items-center bg-white rounded-lg">
               <Icon
                 name="solar:download-square-bold"
                 class="text-blue-400 size-8!"

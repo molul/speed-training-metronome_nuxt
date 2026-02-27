@@ -29,6 +29,10 @@ const MyPreset = definePreset(Aura, {
 });
 
 export default defineNuxtConfig({
+  sourcemap: {
+    server: false,
+    client: false,
+  },
   app: {
     head: {
       title: "Speed Training Metronome",
@@ -92,6 +96,11 @@ export default defineNuxtConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
+  },
+  icon: {
+    clientBundle: {
+      scan: true, // Only bundle icons that are actually used in your code
+    },
   },
   colorMode: {
     classSuffix: "", // Critical for Tailwind: removes '-mode' from 'dark-mode'
