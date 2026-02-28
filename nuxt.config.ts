@@ -112,8 +112,18 @@ export default defineNuxtConfig({
     classSuffix: "",
   },
   site: {
-    url: "https://speed-training-metronome-vue.vercel.app/",
+    url: "https://speed-training-metronome.vercel.app/",
     name: "Speed Training Metronome",
+  },
+  sitemap: {
+    urls: [
+      {
+        loc: "/",
+        lastmod: new Date().toISOString(),
+        changefreq: "daily",
+        priority: 1.0,
+      },
+    ],
   },
   primevue: {
     autoImport: true,
