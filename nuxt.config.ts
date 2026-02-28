@@ -29,7 +29,12 @@ const MyPreset = definePreset(Aura, {
 });
 
 export default defineNuxtConfig({
-  ssr: false,
+  ssr: true,
+  nitro: {
+    prerender: {
+      routes: ["/"], // Genera el HTML real de la home al compilar
+    },
+  },
   sourcemap: {
     server: false,
     client: false,
