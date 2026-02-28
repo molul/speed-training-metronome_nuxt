@@ -111,6 +111,7 @@ export default defineNuxtConfig({
     name: "Speed Training Metronome",
   },
   primevue: {
+    autoImport: true,
     options: {
       ripple: true,
       theme: {

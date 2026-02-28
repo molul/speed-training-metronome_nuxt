@@ -13,12 +13,13 @@ useHead({
 });
 
 useSeoMeta({
-  title: 'Speed Training Metronome',
-  ogTitle: 'Speed Training Metronome',
-  description: 'A high-performance metronome designed for speed training and musical precision.',
-  ogDescription: 'A high-performance metronome designed for speed training and musical precision.',
-  ogImage: 'https://speed-training-metronome.vercel.app/social-card.png',
-  twitterCard: 'summary_large_image',
-})
+  title: "Speed Training Metronome",
+  ogTitle: "Speed Training Metronome",
+  description:
+    "The ultimate metronome for musicians. Practice scales, improve your speed, and keep perfect rhythm with our easy-to-use, high-performance training tool.",
+  ogDescription:
+    "The ultimate metronome for musicians. Practice scales, improve your speed, and keep perfect rhythm with our easy-to-use, high-performance training tool.",
+  ogImage: "https://speed-training-metronome.vercel.app/social-card.png",
+  twitterCard: "summary_large_image",
+});
 </script>
-
