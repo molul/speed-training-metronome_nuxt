@@ -116,6 +116,7 @@ export default defineNuxtConfig({
     name: "Speed Training Metronome",
   },
   sitemap: {
+    xsl: false,
     urls: [
       {
         loc: "/",
