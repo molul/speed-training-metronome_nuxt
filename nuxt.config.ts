@@ -93,6 +93,7 @@ export default defineNuxtConfig({
     "@primevue/nuxt-module",
     "@vueuse/nuxt",
     "@nuxtjs/color-mode",
+    "@nuxtjs/sitemap",
   ],
   vite: {
     plugins: [tailwindcss()],
@@ -104,6 +105,10 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: "",
+  },
+  site: {
+    url: "https://speed-training-metronome-vue.vercel.app/",
+    name: "Speed Training Metronome",
   },
   primevue: {
     options: {
