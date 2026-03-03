@@ -51,6 +51,7 @@ html {
   src: url("./assets/fonts/Code New Roman.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -58,6 +59,7 @@ html {
   src: url("./assets/fonts/Code New Roman b.woff") format("woff");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @theme {
