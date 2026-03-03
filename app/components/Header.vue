@@ -90,7 +90,7 @@ function handleOpenSaveModal() {
 </script>
 
 <template>
-  <div
+  <header
     ref="containerRef"
     class="flex flex-col gap-3 px-4 py-4.5 pl-2.5 relative z-50 rounded-t-lg border-b border-zinc-300 dark:border-zinc-700"
   >
@@ -100,6 +100,7 @@ function handleOpenSaveModal() {
           src="/metronome-favicon.svg"
           class="size-9 rounded-full"
           alt="Metronome Icon"
+          preload
         />
         <span class="text-[15px] font-bold text-left leading-none">
           SPEED TRAINING <br />
@@ -149,5 +150,5 @@ function handleOpenSaveModal() {
         />
       </div>
     </div>
-  </div>
+  </header>
 </template>

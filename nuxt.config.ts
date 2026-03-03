@@ -2,7 +2,6 @@ import { definePreset } from "@primeuix/themes";
 import Aura from "@primeuix/themes/aura";
 import tailwindcss from "@tailwindcss/vite";
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
 const MyPreset = definePreset(Aura, {
   semantic: {
     primary: {
@@ -47,8 +46,7 @@ export default defineNuxtConfig({
         { charset: "UTF-8" },
         {
           name: "viewport",
-          content:
-            "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover",
+          content: "width=device-width, initial-scale=1.0, viewport-fit=cover",
         },
         {
           name: "apple-mobile-web-app-status-bar-style",

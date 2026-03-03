@@ -1,53 +1,56 @@
 <script setup lang="ts">
-import { ref, inject } from 'vue'
-import { useMetronomeStore } from '../stores/useMetronomeStore'
-import { useDialog } from 'primevue/usedialog'
-import MyButton from './MyButton.vue'
-import ConfirmDialog from './ConfirmDialog.vue'
+import { ref, inject } from "vue";
+import { useMetronomeStore } from "../stores/useMetronomeStore";
+import { useDialog } from "primevue/usedialog";
+import MyButton from "./MyButton.vue";
+import ConfirmDialog from "./ConfirmDialog.vue";
 
-const store = useMetronomeStore()
-const dialog = useDialog()
-const dialogRef = inject('dialogRef') as any
+const store = useMetronomeStore();
+const dialog = useDialog();
+const dialogRef = inject("dialogRef") as any;
 
 const presets = ref<any[]>(
-  JSON.parse(window.localStorage.getItem('metronomePresets') || '[]')
-)
+  JSON.parse(window.localStorage.getItem("metronomePresets") || "[]")
+);
 
 const saveToStorage = () => {
-  window.localStorage.setItem('metronomePresets', JSON.stringify(presets.value))
-}
+  window.localStorage.setItem(
+    "metronomePresets",
+    JSON.stringify(presets.value)
+  );
+};
 
 const handleLoad = (preset: any) => {
-  store.loadPreset(preset)
-  dialogRef.value.close()
-}
+  store.loadPreset(preset);
+  dialogRef.value.close();
+};
 
 const handleDelete = (index: number) => {
-  const presetName = presets.value[index].name
+  const presetName = presets.value[index].name;
 
   dialog.open(ConfirmDialog, {
     props: {
-      header: 'Delete Preset',
+      header: "Delete Preset",
       modal: true,
       dismissableMask: true,
       style: {
-        width: '90vw',
-        maxWidth: '24rem'
-      }
+        width: "90vw",
+        maxWidth: "24rem",
+      },
     },
     data: {
       message: `Are you sure you want to delete <span class="dark:text-white font-bold">"${presetName}"</span>? This action cannot be undone.`,
-      confirmLabel: 'Delete Preset',
-      confirmSeverity: 'danger'
+      confirmLabel: "Delete Preset",
+      confirmSeverity: "danger",
     },
-    onClose: opt => {
+    onClose: (opt) => {
       if (opt?.data?.confirmed) {
-        presets.value.splice(index, 1)
-        saveToStorage()
+        presets.value.splice(index, 1);
+        saveToStorage();
       }
-    }
-  })
-}
+    },
+  });
+};
 </script>
 
 <template>
@@ -63,11 +66,12 @@ const handleDelete = (index: number) => {
       <div
         v-for="(p, i) in presets"
         :key="i"
-        class="flex items-center justify-between px-4 py-3 rounded-md bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+        class="flex items-center justify-between px-4 py-3 rounded-md bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors"
       >
-        <span class="font-medium text-zinc-900 dark:text-white truncate mr-4 text-sm">{{
-          p.name
-        }}</span>
+        <span
+          class="font-medium text-zinc-900 dark:text-white truncate mr-4 text-sm"
+          >{{ p.name }}</span
+        >
 
         <div class="flex gap-2 flex-shrink-0">
           <MyButton

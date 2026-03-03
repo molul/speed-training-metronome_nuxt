@@ -1,72 +1,75 @@
 <script setup lang="ts">
-import { ref, inject } from 'vue'
-import { useMetronomeStore } from '../stores/useMetronomeStore'
-import { useDialog } from 'primevue/usedialog'
-import InputText from 'primevue/inputtext'
-import ConfirmDialog from './ConfirmDialog.vue'
-import MyButton from './MyButton.vue'
+import { ref, inject } from "vue";
+import { useMetronomeStore } from "../stores/useMetronomeStore";
+import { useDialog } from "primevue/usedialog";
+import InputText from "primevue/inputtext";
+import ConfirmDialog from "./ConfirmDialog.vue";
+import MyButton from "./MyButton.vue";
 
-const store = useMetronomeStore()
-const dialog = useDialog()
-const dialogRef = inject('dialogRef') as any
+const store = useMetronomeStore();
+const dialog = useDialog();
+const dialogRef = inject("dialogRef") as any;
 
-const newName = ref('')
+const newName = ref("");
 const presets = ref<any[]>(
-  JSON.parse(window.localStorage.getItem('metronomePresets') || '[]')
-)
+  JSON.parse(window.localStorage.getItem("metronomePresets") || "[]")
+);
 
-const closeDialog = () => dialogRef.value.close()
+const closeDialog = () => dialogRef.value.close();
 
 const handleSaveNew = () => {
-  if (!newName.value.trim()) return
+  if (!newName.value.trim()) return;
 
   const newPreset = {
     ...store.config,
     name: newName.value,
     // Deep copy both arrays so they don't stay linked to the live store
     points: JSON.parse(JSON.stringify(store.config.points)),
-    beatPattern: JSON.parse(JSON.stringify(store.config.beatPattern))
-  }
+    beatPattern: JSON.parse(JSON.stringify(store.config.beatPattern)),
+  };
 
-  presets.value.push(newPreset)
-  saveToStorage()
-  closeDialog()
-}
+  presets.value.push(newPreset);
+  saveToStorage();
+  closeDialog();
+};
 
 const openConfirmOverwrite = (preset: any, index: number) => {
   dialog.open(ConfirmDialog, {
     props: {
-      header: 'Confirm Overwrite',
+      header: "Confirm Overwrite",
       modal: true,
       dismissableMask: true,
       style: {
-        width: '90vw',
-        maxWidth: '24rem'
-      }
+        width: "90vw",
+        maxWidth: "24rem",
+      },
     },
     data: {
       message: `Are you sure you want to overwrite <span class="dark:text-white font-bold">"${preset.name}"</span> with your current settings?`,
-      confirmLabel: 'Confirm Overwrite',
-      confirmSeverity: 'danger'
+      confirmLabel: "Confirm Overwrite",
+      confirmSeverity: "danger",
     },
-    onClose: opt => {
+    onClose: (opt) => {
       if (opt?.data?.confirmed) {
         presets.value[index] = {
           ...store.config,
           name: preset.name,
           points: JSON.parse(JSON.stringify(store.config.points)),
-          beatPattern: JSON.parse(JSON.stringify(store.config.beatPattern)) // Add this
-        }
-        saveToStorage()
-        closeDialog()
+          beatPattern: JSON.parse(JSON.stringify(store.config.beatPattern)), // Add this
+        };
+        saveToStorage();
+        closeDialog();
       }
-    }
-  })
-}
+    },
+  });
+};
 
 const saveToStorage = () => {
-  window.localStorage.setItem('metronomePresets', JSON.stringify(presets.value))
-}
+  window.localStorage.setItem(
+    "metronomePresets",
+    JSON.stringify(presets.value)
+  );
+};
 </script>
 
 <template>
@@ -82,7 +85,11 @@ const saveToStorage = () => {
           class="flex-1"
           autofocus
         />
-        <MyButton label="Save" @click="handleSaveNew" :disabled="!newName.trim()" />
+        <MyButton
+          label="Save"
+          @click="handleSaveNew"
+          :disabled="!newName.trim()"
+        />
       </div>
     </div>
 
@@ -103,7 +110,7 @@ const saveToStorage = () => {
           v-for="(p, i) in presets"
           :key="i"
           @click="openConfirmOverwrite(p, i)"
-          class="text-sm flex items-center justify-between px-4 py-3 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-md transition-colors text-left group cursor-pointer"
+          class="text-sm flex items-center justify-between px-4 py-3 bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-md transition-colors text-left group cursor-pointer"
         >
           <span class="font-medium">{{ p.name }}</span>
           <span

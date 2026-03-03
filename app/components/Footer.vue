@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="text-xs text-center font-medium px-4 pb-2 pt-3.5">
+  <footer class="text-xs text-center font-medium px-4 pb-4 pt-2">
     Developed by
     <a
       href="https://www.luismorcilloluque.com"
@@ -12,5 +12,5 @@
       Luis Morcillo Luque
     </a>
     with Nuxt 4 © 2026
-  </div>
+  </footer>
 </template>
