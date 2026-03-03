@@ -29,6 +29,9 @@ const MyPreset = definePreset(Aura, {
 
 export default defineNuxtConfig({
   ssr: true,
+  features: {
+    inlineStyles: true,
+  },
   nitro: {
     prerender: {
       routes: ["/"], // Genera el HTML real de la home al compilar
@@ -117,6 +120,7 @@ export default defineNuxtConfig({
     registry: {
       googleTagManager: {
         id: "G-48PRP8WFCL",
+        trigger: "idle",
       },
     },
   },
