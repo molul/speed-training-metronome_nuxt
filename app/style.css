@@ -48,7 +48,7 @@ html {
 
 @font-face {
   font-family: "CodeNewRoman";
-  src: url("./assets/fonts/Code New Roman.woff") format("woff");
+  src: url("/fonts/Code-New-Roman.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -56,7 +56,7 @@ html {
 
 @font-face {
   font-family: "CodeNewRoman";
-  src: url("./assets/fonts/Code New Roman b.woff") format("woff");
+  src: url("/fonts/Code-New-Roman-b.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;

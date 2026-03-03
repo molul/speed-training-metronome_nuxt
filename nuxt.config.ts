@@ -68,23 +68,37 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/svg+xml", href: "/metronome-favicon.svg" },
         { rel: "manifest", href: "/manifest.webmanifest" },
         { rel: "apple-touch-icon", href: "/icon-192x192.png" },
+        {
+          rel: "preload",
+          href: "/fonts/Code-New-Roman.woff",
+          as: "font",
+          type: "font/woff",
+          crossorigin: "anonymous",
+        },
+        {
+          rel: "preload",
+          href: "/fonts/Code-New-Roman-b.woff",
+          as: "font",
+          type: "font/woff",
+          crossorigin: "anonymous",
+        },
       ],
       // This handles your Google Analytics setup
-      script: [
-        {
-          src: "https://www.googletagmanager.com/gtag/js?id=G-48PRP8WFCL",
-          async: true,
-        },
-        {
-          innerHTML: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-48PRP8WFCL');
-          `,
-          type: "text/javascript",
-        },
-      ],
+      // script: [
+      //   {
+      //     src: "https://www.googletagmanager.com/gtag/js?id=G-48PRP8WFCL",
+      //     async: true,
+      //   },
+      //   {
+      //     innerHTML: `
+      //       window.dataLayer = window.dataLayer || [];
+      //       function gtag(){dataLayer.push(arguments);}
+      //       gtag('js', new Date());
+      //       gtag('config', 'G-48PRP8WFCL');
+      //     `,
+      //     type: "text/javascript",
+      //   },
+      // ],
     },
   },
   css: ["~/style.css"],
@@ -95,8 +109,9 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@primevue/nuxt-module",
     "@vueuse/nuxt",
-    "@nuxtjs/color-mode",
     // "@nuxtjs/sitemap",
+    "@nuxtjs/color-mode",
+    "@nuxt/scripts",
   ],
   vite: {
     plugins: [tailwindcss()],

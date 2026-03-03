@@ -22,4 +22,8 @@ useSeoMeta({
   ogImage: "https://speed-training-metronome.vercel.app/social-card.png",
   twitterCard: "summary_large_image",
 });
+
+useScriptGoogleTagManager({
+  id: "G-48PRP8WFCL",
+});
 </script>
