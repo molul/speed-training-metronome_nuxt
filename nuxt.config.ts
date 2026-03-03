@@ -96,7 +96,7 @@ export default defineNuxtConfig({
     "@primevue/nuxt-module",
     "@vueuse/nuxt",
     "@nuxtjs/color-mode",
-    "@nuxtjs/sitemap",
+    // "@nuxtjs/sitemap",
   ],
   vite: {
     plugins: [tailwindcss()],
@@ -113,17 +113,17 @@ export default defineNuxtConfig({
     url: "https://speed-training-metronome.vercel.app/",
     name: "Speed Training Metronome",
   },
-  sitemap: {
-    xsl: false,
-    urls: [
-      {
-        loc: "/",
-        lastmod: new Date().toISOString(),
-        changefreq: "daily",
-        priority: 1.0,
-      },
-    ],
-  },
+  // sitemap: {
+  //   xsl: false,
+  //   urls: [
+  //     {
+  //       loc: "/",
+  //       lastmod: new Date().toISOString(),
+  //       changefreq: "monthly",
+  //       priority: 1.0,
+  //     },
+  //   ],
+  // },
   primevue: {
     autoImport: true,
     options: {
