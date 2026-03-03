@@ -23,7 +23,7 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
-useScriptGoogleTagManager({
-  id: "G-48PRP8WFCL",
-});
+// useScriptGoogleTagManager({
+//   id: "G-48PRP8WFCL",
+// });
 </script>

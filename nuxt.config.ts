@@ -113,6 +113,13 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxt/scripts",
   ],
+  scripts: {
+    registry: {
+      googleTagManager: {
+        id: "G-48PRP8WFCL",
+      },
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },
