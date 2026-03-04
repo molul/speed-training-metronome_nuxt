@@ -32,7 +32,7 @@ const props = withDefaults(defineProps<Props>(), {
       '!text-sm',
       { '!rounded-full !aspect-square': shape === 'rounded' },
       { '!rounded-md': shape === 'square' && props.size === 'normal' },
-      { '!size-15 text-3xl !rounded-xl': props.size === 'big' },
+      { '!size-15 text-3xl !rounded-lg': props.size === 'big' },
     ]"
   >
     <template #icon>
