@@ -66,7 +66,7 @@ const handleDelete = (index: number) => {
       <div
         v-for="(p, i) in presets"
         :key="i"
-        class="flex items-center justify-between px-4 py-3 rounded-md bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors"
+        class="flex items-center justify-between px-4 py-3 rounded-md bg-zinc-200 dark:bg-zinc-800"
       >
         <span
           class="font-semibold text-zinc-900 dark:text-white truncate mr-4 text-sm"
