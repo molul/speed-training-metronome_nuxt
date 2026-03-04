@@ -112,7 +112,7 @@ const saveToStorage = () => {
           @click="openConfirmOverwrite(p, i)"
           class="text-sm flex items-center justify-between px-4 py-3 bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-md transition-colors text-left group cursor-pointer"
         >
-          <span class="font-medium">{{ p.name }}</span>
+          <span class="font-semibold text-zinc-900 dark:text-white">{{ p.name }}</span>
           <span
             class="font-medium text-xs text-zinc-700 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-300"
           >
