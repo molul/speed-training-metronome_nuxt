@@ -75,7 +75,7 @@ const saveToStorage = () => {
 <template>
   <div class="flex flex-col gap-6 pt-2">
     <div class="flex flex-col gap-2">
-      <span class="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+      <span class="text-sm font-semibold text-zinc-700 dark:text-zinc-300"
         >Save new preset</span
       >
       <div class="flex gap-2">
