@@ -43,7 +43,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: "Speed Training Metronome",
+      title: "Speed Training Metronome | Free online metronome for improving speed",
       htmlAttrs: { lang: "en" },
       meta: [
         { charset: "UTF-8" },
@@ -137,7 +137,7 @@ export default defineNuxtConfig({
   },
   site: {
     url: "https://speed-training-metronome.vercel.app/",
-    name: "Speed Training Metronome",
+    name: "Speed Training Metronome | Free online metronome for improving speed",
   },
   // sitemap: {
   //   xsl: false,
