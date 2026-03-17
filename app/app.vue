@@ -13,12 +13,12 @@ useHead({
 });
 
 useSeoMeta({
-  title: "Speed Training Metronome",
-  ogTitle: "Speed Training Metronome",
+  title: "Speed Training Metronome | Free online metronome for improving speed",
+  ogTitle: "Speed Training Metronome | Free online metronome for improving speed",
   description:
-    "The ultimate metronome for musicians. Practice scales, improve your speed, and keep perfect rhythm with our easy-to-use, high-performance training tool.",
+    "The ultimate free online metronome for musicians. Improve your speed and keep perfect rhythm with our easy-to-use, highly customizable training tool.",
   ogDescription:
-    "The ultimate metronome for musicians. Practice scales, improve your speed, and keep perfect rhythm with our easy-to-use, high-performance training tool.",
+    "The ultimate free online metronome for musicians. Improve your speed and keep perfect rhythm with our easy-to-use, highly customizable training tool.",
   ogImage: "https://speed-training-metronome.vercel.app/social-card.png",
   twitterCard: "summary_large_image",
 });
