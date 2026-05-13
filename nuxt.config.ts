@@ -43,10 +43,15 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: "Speed Training Metronome | Free online metronome for improving speed",
+      title:
+        "Speed Training Metronome | Free online metronome for improving speed",
       htmlAttrs: { lang: "en" },
       meta: [
         { charset: "UTF-8" },
+        {
+          name: "google-site-verification",
+          content: "5DGmyQtisq1mEsuaVGuyzEWjKJKw5eK5MAr3Lsgv6eI",
+        },
         {
           name: "viewport",
           content: "width=device-width, initial-scale=1.0, viewport-fit=cover",
